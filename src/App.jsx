@@ -4,31 +4,14 @@ import { HomeLayout, Landing, Register, Login, DashboardLayout, Error } from "./
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout />
-  },
-  {
-    path: "/landing",
-    element: <Landing />
-  },
-  {
-    path: "/register",
-    element: <Register />
-  },
-  {
-    path: "/login",
-    element: <Login />
-  },
-  {
-    path: "/register",
-    element: <Register />
-  },
-  {
-    path: "/dashboardLayout",
-    element: <DashboardLayout />
-  },
-  {
-    path: "/error",
-    element: <Error />
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Landing /> },
+      { path: "/register", element: <Register /> },
+      { path: "/login", element: <Login /> },
+      { path: "/dashboard", element: <DashboardLayout /> }
+    ]
   }
 ]);
 
